@@ -202,7 +202,7 @@ def unlock_write_protect(tty):
     MAN_ID_ATMEL = 0x1F
     MAN_ID_MICRON = 0x20
     MANUFACTURERS = {MAN_ID_ATMEL: "Atmel/Adesto", MAN_ID_MICRON: "Micron"}
-
+    
     with SPI0Controller(tty) as spi:
         flash_id = spi.transfer([CMD_READ_MANUF_ID], 3)
         man_id = flash_id[0]
@@ -270,7 +270,7 @@ def main():
 
     send_cmd(tty, "autorun 0")
     send_cmd(tty, "cache 1")
-
+    print("TRY to disable software protection")
     unlock_write_protect(tty)
 
     print("Writing to flash...")
