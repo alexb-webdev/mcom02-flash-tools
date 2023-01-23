@@ -208,11 +208,11 @@ def unlock_write_protect(tty):
         man_id = flash_id[0]
         man_str = MANUFACTURERS.get(man_id, "Unknown")
         print("SPI Flash manufacturer: {}".format(man_str))
-        if man_id == MAN_ID_ATMEL:
-            spi.transfer([CMD_WRITE_ENABLE], 0)
-            spi.transfer([CMD_WRITE_STATUS_BYTE1, 0], 0)
-            spi.transfer([CMD_WRITE_DISABLE], 0)
-            print("Software write protect is disabled")
+       # if man_id == MAN_ID_ATMEL:
+        spi.transfer([CMD_WRITE_ENABLE], 0)
+        spi.transfer([CMD_WRITE_STATUS_BYTE1, 0], 0)
+        spi.transfer([CMD_WRITE_DISABLE], 0)
+        print("Software write protect is disabled")
 
 
 def main():
