@@ -214,10 +214,10 @@ def unlock_write_protect(tty):
         	spi.transfer([CMD_WRITE_STATUS_BYTE1, 0], 0)
         	spi.transfer([CMD_WRITE_DISABLE], 0)
         	print("Software write protect is disabled")
-	elif man_id == MAN_ID_MICRON:
-		print("No Software protection is disabled for MICRON ICs");
-	else:
-		print("Unknown flash IC");
+	    elif man_id == MAN_ID_MICRON:
+		    print("No Software protection is disabled for MICRON ICs");
+	    else:
+		    print("Unknown flash IC");
 
 
 def main():
